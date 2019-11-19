@@ -1,2 +1,0 @@
-# risky
-Created with CodeSandbox

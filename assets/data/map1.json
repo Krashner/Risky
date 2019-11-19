@@ -1,0 +1,9 @@
+{
+    "nodes" : [
+    {
+        "name" : "Alaska",
+        "position" : {"x": 10, "y":10},
+        "continent" : "North America"
+    }
+    ]
+}

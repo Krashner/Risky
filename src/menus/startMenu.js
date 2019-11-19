@@ -1,11 +1,20 @@
+import $ from "jquery";
 import Menu from "/src/menus/menu";
+
 
 export default class StartMenu extends Menu{
 
     constructor(game){
         super(game);
         this.name ="main";
-        $("#start").html("Hello, World!");
+        $("#start").html("Start!");
+
+        // $('<button/>', {
+        //     text: 'Start Game',
+        //     id: 't',
+        //     click: this.start
+        // });
+
         document.getElementById("start").addEventListener("click", event => {this.start()});
     }
     
@@ -13,8 +22,6 @@ export default class StartMenu extends Menu{
     start(){
         this.screenManager.changeScreen("gameScreen");
         document.getElementById("start").style.display = "none";
-
-
     }
 
     update(deltaTime){

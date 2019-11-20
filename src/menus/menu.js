@@ -8,10 +8,19 @@ export default class Screen{
         this.gameWidth = game.gameWidth;
         this.gameHeight = game.gameHeight;
         this.canvas = game.canvas;
+        this.buildInterface();
     }
 
     start(){
-        this.camera.reset();
+        
+    }
+
+    buildInterface(){
+
+    }
+
+    destroyInterface(){
+        
     }
 
 

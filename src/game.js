@@ -13,12 +13,6 @@ export default class Game{
         this.menuManager.changeMenu("startMenu");
     }
 
-    // start(){
-    //     this.screenManager.changeScreen("gameScreen");
-    //     document.getElementById("start").style.display = "none";
-    // }
-
-
     update(deltaTime)
     {
         this.menuManager.update(deltaTime);

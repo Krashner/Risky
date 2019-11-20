@@ -12,10 +12,6 @@ export default class Map{
     }
 
     update(deltaTime){
-
-    }
-
-    draw(ctx){
         //offset is the scale difference
         let offsetX = (this.width * this.camera.zoomFactor - this.width);
         let offsetY = (this.height * this.camera.zoomFactor - this.height);
@@ -26,7 +22,9 @@ export default class Map{
 
         this.renderWidth =  this.width + offsetX;
         this.renderHeight = this.height + offsetY;
+    }
 
+    draw(ctx){
         ctx.drawImage(
             this.image,
             this.position.x,
@@ -34,9 +32,5 @@ export default class Map{
             this.renderWidth,
             this.renderHeight 
             );
-    }
-
-    getSizeDelta(){
-        return {x: Math.abs(this.width -this.renderWidth), y: Math.abs(this.height -this.renderHeight) }
     }
 }

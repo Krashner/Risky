@@ -27,7 +27,8 @@ export default class InputHandler {
           //camera.zoom(-1);
           break;
         case 27:
-          //camera.togglePause();
+          screen.screenManager.changeScreen("mainScreen");
+          screen.menuManager.changeMenu("startMenu");
           break;
           case 32:
             // if(screen.name === "main")

@@ -1,16 +1,22 @@
 import StartMenu from "/src/menus/startMenu";
+import ServerBrowserMenu from "/src/menus/serverBrowserMenu";
 
 export default class MenuManager{
     
     constructor(game){
         this.game = game;
         this.menus = {
-            "startMenu": StartMenu
+            "startMenu": StartMenu,
+            "serverBrowserMenu": ServerBrowserMenu
         }
     }
 
     changeMenu(menu){
-        this.currentMenu = new this.menus[menu](this.game);
+        if(this.currentMenu !== undefined)
+            this.currentMenu.destroyInterface();
+        delete this.currentMenu;
+        if(this.menus[menu] !== undefined)
+            this.currentMenu = new this.menus[menu](this.game);
     }
 
     update(deltaTime){

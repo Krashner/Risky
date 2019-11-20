@@ -10,6 +10,9 @@ export default class Army{
         this.position = {x:10, y:10};
         this.soldiers = 1;
         this.destination ={x:10, y:10};
+
+        this.textPosition = {x:0, y:0};
+        this.renderRectangle = {x:0, y:0, width:0, height:0};
     }
 
     start(){
@@ -19,6 +22,7 @@ export default class Army{
 
     update(deltaTime){
 
+        //move the army
         if(Math.abs(this.position.x - this.destination.x) <0.01 && Math.abs(this.position.y - this.destination.y) <0.01)
         {
             this.position = this.destination;
@@ -26,29 +30,33 @@ export default class Army{
             this.position.x = this.lerp(this.position.x, this.destination.x, 0.1);
             this.position.y = this.lerp(this.position.y, this.destination.y, 0.1)
         }
+
+        let offsetX = this.width * this.camera.zoomFactor - this.width;
+        let offsetY = this.height * this.camera.zoomFactor - this.height;
+        
+        this.renderRectangle.x = this.position.x * this.camera.zoomFactor + this.map.position.x - (this.width + offsetX)/2;
+        this.renderRectangle.y = this.position.y * this.camera.zoomFactor + this.map.position.y - (this.height + offsetY)/2;
+        this.renderRectangle.width =  this.width + offsetX;
+        this.renderRectangle.height =  this.height + offsetY;
+
+        this.textPosition.x = this.map.position.x + this.position.x * this.camera.zoomFactor - (this.width + offsetX)/2;
+        this.textPosition.y = this.map.position.y + this.position.y * this.camera.zoomFactor - (this.height + offsetY)/2;    
     }
 
     draw(ctx){
-        let offsetX =(this.width * this.camera.zoomFactor - this.width);
-        let offsetY = (this.height * this.camera.zoomFactor - this.height);
 
         //draw relative to map position
         ctx.drawImage(
             this.image,
-            this.position.x * this.camera.zoomFactor + this.map.position.x - (this.width + offsetX)/2,
-            this.position.y * this.camera.zoomFactor + this.map.position.y - (this.height + offsetY)/2,
-            this.width + offsetX,
-            this.height + offsetY 
+            this.renderRectangle.x,
+            this.renderRectangle.y,
+            this.renderRectangle.width,
+            this.renderRectangle.height
             );
 
-            let textPosition = {x:0, y:0};
-
-            textPosition.x = this.map.position.x + this.position.x * this.camera.zoomFactor - (this.width + offsetX)/2;
-            textPosition.y = this.map.position.y + this.position.y * this.camera.zoomFactor - (this.height + offsetY)/2;    
-
             //draw number of troops
-            this.drawStroked(ctx, this.soldiers, 20 * this.camera.zoomFactor, textPosition.x + this.width/ 2 * this.camera.zoomFactor,
-                textPosition.y + this.height * 2 * this.camera.zoomFactor);
+            this.drawStroked(ctx, this.soldiers, 20 * this.camera.zoomFactor, this.textPosition.x + this.width/ 2 * this.camera.zoomFactor,
+                this.textPosition.y + this.height * 2 * this.camera.zoomFactor);
 
     }
 

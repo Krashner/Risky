@@ -20,7 +20,6 @@ export default class GameScreen extends Screen{
 
 
     update(deltaTime){
-  
         this.map.update(deltaTime);
         this.camera.update(deltaTime);
         this.clock.update(deltaTime);
@@ -29,7 +28,7 @@ export default class GameScreen extends Screen{
 
     draw(ctx){
         //[...this.gameObjects].forEach((object) => object.draw(ctx));
-        //this.camera.draw(ctx);
+        this.camera.draw(ctx);
         this.map.draw(ctx);
         this.army.draw(ctx);
         this.clock.draw(ctx);

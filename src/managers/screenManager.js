@@ -12,7 +12,12 @@ export default class ScreenManager{
     }
 
     changeScreen(screen){
-        this.currentScreen = new this.screens[screen](this.game);
+        delete this.currentScreen;
+        if(this.screens[screen] !== undefined)
+        {
+            this.currentScreen = new this.screens[screen](this.game);
+            this.currentScreen.camera.reset();
+        }
     }
 
     update(deltaTime){

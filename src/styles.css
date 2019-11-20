@@ -18,15 +18,53 @@ img{
   right: 0;
 }
 
-#start{
-  margin: auto;
+#user_interface_container{
+  /* margin: auto;
   border: 1px solid black;
-  /* padding: 0; */
   margin: auto;
   position: absolute;
-  /* top: 0; */
   bottom: 50%;
   left: 50%;
-  /* right: 50%; */
+  z-index: 1; */
+  border: 1px solid black;
+  padding: 0;
+  margin: auto;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 800px;
+  height: 600px;
   z-index: 1;
+}
+
+/* main menu styles */
+#main_menu_container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#start_btn{
+  width: 100%;
+  margin: auto;
+  display:block;
+}
+
+#server_browser_btn{
+  width: 100%;
+  margin: auto;
+  display:block;
+}
+
+/* server browser styles */
+
+#join_btn{
+  width: 100%;
+  margin: auto;
+  display:block;
 }

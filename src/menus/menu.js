@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 export default class Screen{
     
 
@@ -8,7 +10,8 @@ export default class Screen{
         this.gameWidth = game.gameWidth;
         this.gameHeight = game.gameHeight;
         this.canvas = game.canvas;
-        this.buildInterface();
+        this.buildInterface();       
+        $('#user_interface_container').css({"maxWidth":this.game.gameWidth +"px" , "maxHeight":this.game.gameHeight +"px"});
     }
 
     start(){

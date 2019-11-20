@@ -38,6 +38,7 @@ img{
   width: 800px;
   height: 600px;
   z-index: 1;
+  overflow: hidden;
 }
 
 /* main menu styles */
@@ -63,8 +64,44 @@ img{
 
 /* server browser styles */
 
+#server_menu_container{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+#browser_header{
+  text-align: center;
+  margin: auto;
+  padding: 10px;
+}
+
+#searchbar{
+  text-align: center;
+  margin: auto;
+  padding: 10px;
+}
+
 #join_btn{
   width: 100%;
   margin: auto;
   display:block;
+}
+
+#server_list{
+  border: 1px solid black;
+  margin: auto;
+  padding : 0;
+  width: 80%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 10px;
+}
+
+.server_li{
+  list-style-type: none;
+}
+
+.server_btn{
+  width: 100%;
 }

@@ -7,6 +7,7 @@ export default class StartMenu extends Menu{
     constructor(game){
         super(game);
         this.name ="main";
+        //$("#main_menu_container").attr({"max-width" : game.gameWidth, "max-height" : game.gameHeight});
     }
     
     startGame(){
@@ -23,7 +24,7 @@ export default class StartMenu extends Menu{
         let menuContainer = '<div id="main_menu_container"></div>';
         $("#user_interface_container").append(menuContainer);
         
-        let startButton = '<button id="start_btn">Start</button>';
+        let startButton = '<button id="start_btn">Create Room</button>';
         $("#main_menu_container").append(startButton);
         $("#start_btn").on("click", () => {this.startGame()});
 
